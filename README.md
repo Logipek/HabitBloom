@@ -27,7 +27,7 @@ Une application web moderne pour suivre vos habitudes quotidiennes et améliorer
 - npm (version 9.x ou supérieure)
 
 ## 🚀 Installation
-https://github.com/Logipek/HabitBloom.git
+
 1. Clonez le repository :
 ```bash
 git clone https://github.com/Logipek/HabitBloom.git
