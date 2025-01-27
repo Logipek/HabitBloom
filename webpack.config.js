@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js', // if you unuse typescript entry
-  // entry: './src/index.ts',
+  entry: './src/index.js',
   output: {
     filename: 'src/[name].[fullhash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    clean: true
   },
   module: {
     rules: [
@@ -23,18 +23,20 @@ module.exports = {
         }
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
-        ],
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       },
-      { test: /\.ts$/, use: 'ts-loader' }
-    ],
+    ]
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.js'], 
+    alias: {  
+      '@': path.resolve(__dirname, 'src/'),
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@models': path.resolve(__dirname, 'src/models/'),
+      '@views': path.resolve(__dirname, 'src/views/'),
+      '@controllers': path.resolve(__dirname, 'src/controllers/')
+    }
   },
   devServer: {
     historyApiFallback: true,
@@ -48,18 +50,35 @@ module.exports = {
       progress: true,
       webSocketTransport: 'ws'
     },
-    webSocketServer: 'ws'
+    webSocketServer: 'ws',
+    static: { 
+      directory: path.join(__dirname, 'public'),
+      publicPath: '/public'
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       inject: 'body',
-      hash: true
+      hash: true,
+      title: 'HabitBloom'  
     }),
     new ESLintPlugin({
-      extensions: ['js', 'ts'],
+      extensions: ['js'],  
       exclude: 'node_modules',
       files: './src/'
     })
-  ]
+  ],
+  optimization: {  
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  }
 };

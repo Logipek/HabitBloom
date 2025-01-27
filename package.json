@@ -1,5 +1,5 @@
 {
-  "name": "env-webpack-vanilla",
+  "name": "habitbloom",
   "version": "1.0.0",
   "description": "env webpack vanilla node20",
   "main": "index.js",
@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/xzen769/env-webpack-vanilla.git"
+    "url": "git+https://github.com/Logipek/HabitBloom.git"
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://gitlab.com/xzen769/env-webpack-vanilla/-/blob/main/README.md",
+  "homepage": "https://github.com/Logipek/HabitBloom",
   "devDependencies": {
     "@babel/core": "^7.23.0",
     "@babel/eslint-parser": "^7.22.15",
