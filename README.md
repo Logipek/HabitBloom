@@ -30,8 +30,8 @@ Une application web moderne pour suivre vos habitudes quotidiennes et améliorer
 
 1. Clonez le repository :
 ```bash
-git clone https://github.com/votre-username/habit-tracker.git
-cd habit-tracker
+git clone https://github.com/Logipek/HabitBloom.git
+cd HabitBloom
 ```
 
 2. Installez les dépendances :
