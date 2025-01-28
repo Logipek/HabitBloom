@@ -4,5 +4,5 @@ import { HabitController } from './controllers/HabitController';
 import './styles.css';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new HabitController(new HabitModel(), new HabitView());
+  window.habitController = new HabitController(new HabitModel(), new HabitView());
 });
